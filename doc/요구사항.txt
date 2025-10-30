@@ -3,4 +3,7 @@
 - 기술스택 아이콘과 상중하를 나타내는 상태바 삽입 (https://www.dongsubkim.com/#skills 참고)
 - 이력서 자기소개서 포트폴리오 순서인 듯
 - 위 헤더에는 섹션으로 갈 수 있게 해주고 그 섹션에서 전체보기가 필요한 경우엔 버튼을 따로 만들어줌
-- 
+- https://hasan-ashab.vercel.app/
+- https://www.benoldham.dev/projects/fine-dining-restaurant/
+- https://akshayabraham.vercel.app/?utm_source=github&utm_medium=readme&utm_campaign=dev_portfolios%22
+- https://github.com/emmabostian/developer-portfolios?tab=readme-ov-file
