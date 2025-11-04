@@ -3,12 +3,12 @@
     <section class="hero" id="home">
       <div class="hero-inner container">
         <div class="hero-text full">
-          <h1>안녕하세요<br />꾸준히 배우고 성장하는<br />백엔드 개발자 안태민입니다.</h1>
-          <p class="lead">간단한 소개 문구가 들어갑니다. 포트폴리오와 이력서를 통해 자세한 내용을 확인하세요.</p>
-          <div class="cta">
-            <a class="btn outline" href="#projects">포트폴리오 보기</a>
-            <a class="btn outline" href="#resume">이력서 보기</a>
-          </div>
+          <h1>안녕하세요<br />꾸준히 배우고 성장하는<br />끈기의 백엔드 개발자 안태민입니다.</h1>
+          <p class="lead">이력서 및 자기소개서를 통해 자세한 내용을 확인하세요.</p>
+          <!-- <div class="cta"> -->
+            <!-- <a class="btn" style="margin-right: 10px;" href="/antaemin_resume.pdf" target="_blank" >이력서 보기</a>
+            <a class="btn" href="/antaemin_resume.pdf" target="_blank" >포트폴리오 보기</a> -->
+          <!-- </div> -->
         </div>
         
       </div>
@@ -39,7 +39,8 @@
         <article class="card">
           <h3>AI 입찰 수집 서비스 (2024)</h3>
           <p>Spring Boot · 24일의 프로젝트 요약</p>
-          <a class="link" href="#">자세히 보기</a>
+          <!-- <a class="link" href="../views/ProjectDetailView.vue">자세히 보기</a> -->
+           <router-link class="link" :to="{ path: '../views/ProjectDetailView'}" replace>자세히 보기</router-link>
         </article>
         <article class="card">
           <h3>DB 자동화(2023)</h3>
@@ -56,10 +57,10 @@
 
     <section class="resume container" id="resume">
       <h2>Resume</h2>
-      <p>이력서(자기소개서)는 다운로드 또는 PDF 뷰어로 표시할 수 있습니다.</p>
+      <!-- <p>이력서(자기소개서)는 다운로드 또는 PDF 뷰어로 표시할 수 있습니다.</p> -->
       <div class="resume-actions">
-        <a class="btn" href="#">이력서 다운로드 (PDF)</a>
-        <a class="btn outline" href="#">자기소개서 보기</a>
+            <a class="btn" style="margin-right: 10px;" href="/antaemin_resume.pdf" target="_blank" >이력서 보기</a>
+            <a class="btn" href="/antaemin_resume.pdf" target="_blank" >포트폴리오 보기</a>
       </div>
     </section>
   </main>

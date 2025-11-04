@@ -1,7 +1,7 @@
 <template>
   <header class="site-header">
     <nav class="nav-inner container">
-      <div class="brand" @click="router.push('/')">An Taemin</div>
+      <div class="brand" @click="router.push('/')">Ahn Taemin</div>
 
       <ul class="menu">
         <li
