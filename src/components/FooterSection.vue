@@ -1,11 +1,12 @@
 <template>
   <footer class="site-footer">
     <div class="container">
-      <p class="copyright">© 2025 An Taemin</p>
+      <p class="copyright">© 2025 Ahn Taemin</p>
       <ul class="social">
-        <li><a href="#">GitHub</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Email</a></li>
+        <li><a href="https://github.com/taemin01">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/%ED%83%9C%EB%AF%BC-%EC%95%88-244782384/">LinkedIn</a></li>
+        <li><a href="https://velog.io/@taemin01/posts">Velog</a></li>
+        <li><a href="https://www.instagram.com/t._.m2_/">Instagram</a></li>
       </ul>
     </div>
   </footer>
