@@ -3,8 +3,9 @@
     <section class="hero" id="home">
       <div class="hero-inner container">
         <div class="hero-text full">
-          <h1>안녕하세요<br />꾸준히 배우고 성장하는<br />끈기의 백엔드 개발자 안태민입니다.</h1>
-          <p class="lead">이력서 및 자기소개서를 통해 자세한 내용을 확인하세요.</p>
+          <h2>안녕하세요<br />꾸준히 배우고 성장하는<br />끈기의 백엔드 개발자 안태민입니다.<br/>
+            주로 Java를 사용하며, Backend, Server에 관심이 있습니다.</h2>
+          <p class="lead">프로젝트의 자세한 내용은 이력서를 확인해주세요.</p>
         </div>
         
       </div>
@@ -22,7 +23,7 @@
           <h4>Languages</h4>
           <p class="skill-list">Java · Python · HTML/CSS · JavaScript</p>
           <p class="skill-note">Java Spring Boot를 사용하여 웹을 기반으로 한 팀 프로젝트를 진행하였습니다.</p>
-          <p class="skill-note">Python을 사용하여 데이터 분석 미니 프로젝트를 개인으로 진행하였습니다.</p>
+          <p class="skill-note">Python을 사용하여 데이터 분석 미니 프로젝트 및 RAG 기초 학습을 진행하였습니다.</p>
         </div>
 
         <div class="skill-card full-width">
@@ -79,7 +80,7 @@
       <h2>Resume</h2>
 
       <div class="resume-actions">
-            <a class="btn" style="margin-right: 10px;" href="/antaemin_resume.pdf" target="_blank" >이력서 보기</a>
+            <a class="btn" style="margin-right: 10px;" href="/ahntaemin_portfoilo.pdf" target="_blank" >이력서 보기</a>
             <a class="btn" href="/antaemin_resume.pdf" target="_blank" >자기소개서 보기</a>
       </div>
     </section>

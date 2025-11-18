@@ -24,7 +24,7 @@ const route = useRoute()
 
 const menus = [
   { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
+  { id: 'about', label: 'Skils' },
   { id: 'projects', label: 'Projects' },
   { id: 'resume', label: 'Resume' }
 ]
