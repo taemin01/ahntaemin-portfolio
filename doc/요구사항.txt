@@ -1,7 +1,10 @@
 - 반응형으로 진행하는 것도 고려해야함
 - 자기소개서는 따로 작성(문서로 작성하여 다운로드 or pdf 웹 뷰어로 띄워주기)
 - 기술스택 아이콘과 상중하를 나타내는 상태바 삽입 (https://www.dongsubkim.com/#skills 참고)
-- 이력서 자기소개서 포트폴리오 순서인 듯
+- 이력서 자기소개서 포트폴리오 순서
+- 프로젝트 정리 간단히 진행 후 word -> pdf 포트폴리오 보여주기
+- 자기소개서 따로 작성하여 pdf로 진행
+- 이력서 자기소개서 포트폴리오 한 번에 합치는 것도 고려
 - 위 헤더에는 섹션으로 갈 수 있게 해주고 그 섹션에서 전체보기가 필요한 경우엔 버튼을 따로 만들어줌
 - https://hasan-ashab.vercel.app/
 - https://www.benoldham.dev/projects/fine-dining-restaurant/
