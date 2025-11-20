@@ -8,8 +8,9 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes
-})
+  history: createWebHistory("/ahntaemin-portfolio"),
+  routes,
+});
+
 
 export default router
