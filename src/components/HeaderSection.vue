@@ -24,9 +24,9 @@ const route = useRoute()
 
 const menus = [
   { id: 'home', label: 'Home' },
-  { id: 'about', label: 'Skils' },
+  { id: 'aboutme', label: 'About Me' },
+  { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
-  { id: 'resume', label: 'Resume' }
 ]
 
 const scrollTo = (id) => {
