@@ -1,0 +1,259 @@
+{
+  "projects": [
+    {
+      "id": "chosun-ai-poc",
+      "title": "조선일보 AI POC (2025)",
+      "year": 2025,
+      "period": {
+        "start": "2025-07-21",
+        "end": "2025-08-06",
+        "text": "2025.07.21 ~ 2025.08.06"
+      },
+      "type": "인턴십 POC 프로젝트",
+      "team": {
+        "isTeam": true,
+        "teamSize": 3,
+        "roleSummary": "RAG 서포트 및 AI 채팅 Back-End 배포"
+      },
+      "cardSummary": "Python · Spring Boot · RAG 기반 뉴스 검색 AI POC",
+      "cardHighlight": "조선일보 뉴스 데이터를 대상으로 RAG 기반 AI 검색·요약 가능성 검증",
+      "stacks": {
+        "frontend": ["Python", "Streamlit"],
+        "backend": ["Python", "Flask", "Java", "Spring Boot"],
+        "database": ["PostgreSQL", "FAISS"],
+        "infra": ["AWS OpenSearch", "AWS EC2", "AWS Lambda", "API Gateway"],
+        "tools": ["Git", "GitLab"],
+        "externalServices": ["Upstage Embeddings API", "Upstage Chat API"]
+      },
+      "links": {
+        "github": null,
+        "demo": null
+      },
+      "detail": {
+        "goal": "조선일보 뉴스 데이터를 대상으로 사용자의 질의를 RAG로 처리하여 관련 기사 검색 및 종합 답변을 생성할 수 있는지 검증하는 POC 프로젝트.",
+        "overview": [
+          "Spring Back-End가 사용자의 질문을 받아 LLM을 통해 키워드와 검색 기간을 추출한다.",
+          "Flask Back-End는 추출된 키워드·시간 범위를 이용해 AWS OpenSearch에서 뉴스 데이터를 조회하고, 내장 Vector DB 기반 리랭킹을 수행한다.",
+          "Spring Back-End가 리랭킹된 뉴스와 사용자의 질문을 LLM에 전달하여 최종 답변을 생성하고, 사용자에게 반환한다."
+        ],
+        "responsibilities": [
+          "POC 전반에서 RAG 파이프라인을 지원하고, JSON 요청 형식 정의 및 테스트를 담당.",
+          "AI 채팅 기능을 구현한 Spring Boot Back-End를 AWS EC2 환경에 배포.",
+          "날짜 범위 키워드에 따라 검색 기간을 유연하게 설정할 수 있도록 LLM 요청 프롬프트를 조정."
+        ],
+        "problemsAndSolutions": [
+          {
+            "problem": "Lambda와 Spring Boot 조합에서 호환 이슈 및 스트리밍 제약, 콜드 스타트로 인한 응답 지연.",
+            "solution": "AI 채팅 기능은 스트리밍 기능을 사용해야 하기에 EC2 기반으로 재배포하여 지속 연결과 응답 속도를 개선."
+          },
+          {
+            "problem": "AWS API Gateway를 통해 전달되는 JSON 요청이 Spring Boot에서 `?`로 깨지는 인코딩 문제.",
+            "solution": "API Gateway 콘솔에서 이진 미디어 유형을 지정하여 인코딩 문제를 해결."
+          },
+          {
+            "problem": "Spring Boot 3로 업데이트하면서 `/chat`과 `/chat/` 두 경로가 다르게 매핑되어 엔드포인트가 매치되지 않는 문제.",
+            "solution": "컨트롤러 매핑을 수정하여 슬래시 유무에 관계없이 동일하게 처리되도록 코드 개선."
+          }
+        ],
+        "learnings": [
+          "AWS 서비스(Lambda, API Gateway, EC2, OpenSearch)를 실제 POC 환경에서 사용하며, 인프라 구성과 운영 이슈를 직접 경험.",
+          "직접 개발한 코드뿐 아니라 기존 코드를 읽고 파악하는 능력의 중요성을 느끼고, 흐름 중심으로 코드를 따라가는 전략의 필요성을 체감.",
+          "Issue, PR, Commit 컨벤션을 사용하는 협업 방식의 필요성을 느끼고, 문서 기반 커뮤니케이션과 소통의 중요성을 인지."
+        ]
+      }
+    },
+    {
+      "id": "rag-performance-improvement",
+      "title": "RAG 성능 향상 (2025)",
+      "year": 2025,
+      "period": {
+        "start": "2025-07-14",
+        "end": "2025-07-18",
+        "text": "2025.07.14 ~ 2025.07.18"
+      },
+      "type": "개인 프로젝트",
+      "team": {
+        "isTeam": false,
+        "teamSize": 1,
+        "roleSummary": "RAG 파이프라인 설계 및 구현 전담"
+      },
+      "cardSummary": "Python · Chroma DB · 문서 기반 RAG 파이프라인 구축",
+      "cardHighlight": "사내 문서를 대상으로 청킹·임베딩·검색까지 RAG 기본 파이프라인을 직접 구현",
+      "stacks": {
+        "language": ["Python"],
+        "database": ["Chroma DB (Home Server)"],
+        "tools": ["Git", "GitHub"],
+        "externalServices": [
+          "HuggingFace Embedding Model (sentence-transformers/all-MiniLM-L6-v2)",
+          "Upstage Solar Pro LLM API",
+          "Upstage Doument Parse"
+        ]
+      },
+      "links": {
+        "github": "https://github.com/taemin01/python-rag-pipeline",
+        "demo": null
+      },
+      "detail": {
+        "goal": "RAG 기초를 학습하고, 사내 제공 문서에 대해 검색·응답 품질을 향상시키기 위한 개인 학습 프로젝트.",
+        "overview": [
+          "사내 Document Parse를 통해 문서 데이터를 JSON 형태로 받아 Python에서 로드.",
+          "LangChain의 RecursiveCharacterTextSplitter로 텍스트를 청킹하고, 페이지 정보 등 메타데이터를 유지한 채 임베딩 진행.",
+          "HuggingFace 한국어 특화 sentence-transformers 모델로 임베딩을 생성하여 Chroma DB에 적재.",
+          "사용자 질문을 임베딩하여 Chroma DB에서 유사도 검색을 수행하고, 상위 N개의 관련 문서와 함께 LLM에 전달해 최종 답변을 생성."
+        ],
+        "problemsAndSolutions": [
+          {
+            "problem": "초기에는 PyPDFLoader 사용 시 텍스트 순서가 섞이는 문제로 자연스러운 청킹이 어려움.",
+            "solution": "PyMuPDFLoader를 사용하여 텍스트 구조와 레이아웃을 최대한 보존하여 추출, 청킹 품질 개선."
+          },
+          {
+            "problem": "사내 Document Parse JSON 기반 전처리에서 헤더·푸터, 불필요 문자 제거는 가능했지만, 표 형식 데이터가 깨지는 문제.",
+            "solution": "표 섹션을 마크다운 형식으로 원본을 최대한 유지한 채 별도로 저장하고 임베딩하는 방식으로 처리."
+          },
+          {
+            "problem": "일부 질문에서 LLM이 제공된 청크 안에서 답변을 하지 못하는 현상 발생.",
+            "solution": "RAG Fail이 아니라 LLM의 한계로 판단하고, Upstage Solar Pro 대신 다른 모델(OpenAI 계열)로 교체하여 응답 품질 개선을 확인."
+          }
+        ],
+        "learnings": [
+          "RAG 성능은 단순히 벡터 검색뿐 아니라 청킹 전략, 전처리, 하이브리드 서치, 유사도 평가 등 다양한 요소가 복합적으로 작용함을 체감.",
+          "문서 형태가 제각각이기 때문에 범용 파이프라인보다는 문서 유형에 맞춘 전처리·정규식 전략이 필요하다는 점을 인식.",
+          "시간 제약으로 다양한 실험을 충분히 못 해본 아쉬움이 있어, 이후 RAG 프로젝트에서는 청킹 전략과 검색 전략부터 체계적으로 설계할 계획을 수립."
+        ]
+      }
+    },
+    {
+      "id": "toco-mindmap",
+      "title": "Toco – 메모 유사도 기반 마인드맵 시각화 (2025)",
+      "year": 2025,
+      "period": {
+        "start": "2025-03-01",
+        "end": "2025-06-30",
+        "text": "2025.03 ~ 2025.06"
+      },
+      "type": "팀 프로젝트",
+      "team": {
+        "isTeam": true,
+        "teamSize": 2,
+        "roleSummary": "프론트엔드 및 벡터 기반 클러스터링 담당"
+      },
+      "cardSummary": "Vue.js · FastAPI · OpenAI · Chroma DB를 활용한 메모 마인드맵 서비스",
+      "cardHighlight": "메모간 의미적 유사도를 기반으로 마인드맵 형태로 시각화",
+      "stacks": {
+        "frontend": ["Vue.js (Composition API)", "HTML", "CSS", "JavaScript"],
+        "backend": ["Python", "FastAPI"],
+        "database": ["MySQL", "Chroma DB"],
+        "infra": ["mini PC (Home Server)"],
+        "tools": ["Git", "GitHub"],
+        "externalServices": ["OpenAI API"]
+      },
+      "links": {
+        "github": "https://github.com/taemin01/vue-toco-project.git",
+        "demo": null
+      },
+      "detail": {
+        "goal": "사용자가 작성한 메모와 유튜브 영상을 의미적 유사도 기반으로 클러스터링하여, 마인드맵 형태로 연결·시각화함으로써 메모 관리와 아이디어 정리를 돕는 서비스.",
+        "overview": [
+          "메모 원본 내용 및 유튜브 영상 제목을 OpenAI API에 전달해 카테고리를 추출하고, 데이터베이스에 저장.",
+          "추출된 텍스트를 OpenAI Embeddings로 벡터화하여 Chroma DB에 저장.",
+          "벡터를 기반으로 Scikit-learn의 DBSCAN 알고리즘으로 클러스터링을 수행하고, 같은 군집에 속한 메모들을 프론트엔드에서 간선으로 연결해 마인드맵으로 시각화.",
+          "유튜브 영상은 iframe으로 삽입하여 메모와 함께 한 화면에서 관리."
+        ],
+        "responsibilities": [
+          "Vue.js(Composition API)를 사용해 전체 화면, 로직, API 연동 등 프론트엔드 전반 구현.",
+          "mini PC 기반 home server를 구축하고 Chroma DB 구조 설계 및 운영.",
+          "OpenAI API를 사용해 카테고리 추출 및 Embeddings 벡터 변환 로직 구현.",
+          "DBSCAN 기반 클러스터링 로직을 구현하고, 시각화에 적합한 형태로 데이터 가공."
+        ],
+        "problemsAndSolutions": [
+          {
+            "problem": "DBSCAN 클러스터링에서 밀도가 낮은 데이터가 노이즈로 처리되어 군집이 불안정한 문제.",
+            "solution": "하이퍼파라미터(특히 eps, min_samples)를 반복적으로 조정해 최적값을 찾고, k-최근접 이웃 거리 그래프와 knee point 기법을 활용해 eps를 동적으로 추정."
+          },
+          {
+            "problem": "간선이 메모 카드에 가려지는 시각화 이슈.",
+            "solution": "z-index 및 레이어 구조를 조정하여 간선이 적절히 노출되도록 UI 개선(추가 보완 예정 항목으로 관리)."
+          }
+        ],
+        "futureWork": [
+          "유튜브 영상 자막을 활용해 더 정확한 카테고리 추출 및 요약 기능 추가.",
+          "WebSocket 기반 실시간 협업 및 공유 기능.",
+          "간선 덮임·레이아웃 문제를 해결하기 위한 시각화 개선."
+        ],
+        "learnings": [
+          "Cursor AI를 처음 사용해 보며 화면 스타일링과 코드 보일러플레이트를 빠르게 작성하는 데 도움을 받았고, 프롬프트 설계와 룰 정의의 중요성을 체감.",
+          "DBSCAN 기반 클러스터링과 노이즈 처리의 특성을 실습하면서, 하이퍼파라미터 튜닝과 시각적 검증의 필요성을 경험.",
+          "생성형 AI와 벡터 DB를 결합한 서비스에서 프론트엔드·백엔드·데이터 파이프라인이 긴밀하게 연결되어야 한다는 점을 이해."
+        ]
+      }
+    },
+    {
+      "id": "refresh-used-market",
+      "title": "Refresh – 중고거래 웹 사이트 (2024)",
+      "year": 2024,
+      "period": {
+        "start": "2024-09-01",
+        "end": "2024-12-31",
+        "text": "2024.09 ~ 2024.12"
+      },
+      "type": "팀 프로젝트",
+      "team": {
+        "isTeam": true,
+        "teamSize": 4,
+        "roleSummary": "백엔드 및 채팅·로그인 기능 담당, 팀장"
+      },
+      "cardSummary": "React · Spring Boot · Kakao Maps 기반 중고거래 플랫폼",
+      "cardHighlight": "거래 당사자 위치를 기반으로 중간 지점을 계산해 편의시설을 추천해 주는 중고거래 서비스",
+      "stacks": {
+        "frontend": ["React.js", "HTML", "CSS", "JavaScript"],
+        "backend": ["Java", "Spring Boot", "JPA"],
+        "database": ["MySQL", "Firebase Realtime Database"],
+        "infra": ["AWS RDS"],
+        "tools": ["Git", "GitHub"],
+        "externalServices": [
+          "Kakao Login API",
+          "Kakao Maps API (Places)",
+          "Geolocation API"
+        ]
+      },
+      "links": {
+        "github": null,
+        "demo": null
+      },
+      "detail": {
+        "goal": "거래 장소를 정하는 데 어려움을 겪는 사용자를 위해, 두 사용자의 위치 기반 중간 지점을 계산하고 주변 편의시설을 추천해 주는 중고거래 웹 사이트.",
+        "overview": [
+          "사용자는 카카오 로그인을 통해 인증을 진행하고, 최초 로그인 시 Geolocation API로 위치 정보를 수집하여 회원 정보와 함께 저장.",
+          "두 사용자의 위도·경도를 이용해 중간 좌표를 계산하고, 해당 좌표를 Kakao Maps Places API에 전달해 주변 편의점 등 편의시설 목록을 추천.",
+          "React 기반 프론트엔드에서 상품 게시글 CRUD, 좋아요(스크랩), 채팅 등 주요 기능을 제공."
+        ],
+        "responsibilities": [
+          "카카오 로그인 백엔드 로직 구현 및 사용자 정보 저장 플로우 설계.",
+          "채팅 기능 구현 및 위치 기반 중간 지점 계산 로직 서포트.",
+          "AWS RDS 구축 및 DB 설계에 참여, 일부 게시글 검색 및 중간 거리 지정 페이지 등 백업 기능 구현.",
+          "팀장으로서 주간 진행 상황 공유, 일정 정리 및 발표 준비."
+        ],
+        "problemsAndSolutions": [
+          {
+            "problem": "프론트엔드–백엔드 간 도메인 차이로 인한 CORS 이슈 발생.",
+            "solution": "Spring Security/CORS 설정을 통해 허용 origin을 명시하고, 필요 헤더·메서드를 허용하여 문제 해결."
+          },
+          {
+            "problem": "카카오 계정 이메일 비동의 사용자의 가입 처리 로직 문제.",
+            "solution": "HttpOnly 쿠키에 Kakao Id를 저장한 뒤, 회원가입 입력 정보와 함께 백엔드로 전달하여 이메일 없이도 사용자 식별이 가능하도록 로직 리팩토링 계획 수립."
+          },
+          {
+            "problem": "중간 지점의 주소 계산이 지리적 특성(도로, 실제 이동 거리)을 반영하지 못하는 한계.",
+            "solution": "중간 위도·경도를 Kakao Places 카테고리 검색에 사용해 실제 편의시설 목록을 보여주는 방식으로 UX 개선."
+          }
+        ],
+        "learnings": [
+          "처음 사용하는 프레임워크(React, Spring Boot)와 외부 API(Kakao, Geolocation)를 빠르게 익히기 위해 공식 문서와 예제를 적극적으로 활용.",
+          "RESTful API 설계와 JSON 기반 데이터 교환, 프론트엔드 상태 관리의 어려움을 경험하면서 백엔드뿐 아니라 프론트엔드까지 이해할 필요성을 느낌.",
+          "Kakao API, JWT, XSS, 쿠키 탈취 등 웹 보안 개념을 학습하며 실제 서비스에서의 보안 중요성을 체감.",
+          "Git/GitHub 협업 과정(Issue, 브랜치 전략, 충돌 해결 등)이 처음에는 부담이었지만, 앞으로의 협업에서 적극적으로 활용해야겠다고 다짐."
+        ]
+      }
+    }
+  ]
+}
