@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://taemin01.github.io/ahntaemin-portfolio",
+  "homepage": "https://taemin01.github.io/ahntaemin-portfolio/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
