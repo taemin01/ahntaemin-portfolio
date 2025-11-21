@@ -74,5 +74,5 @@ a:hover, a:focus { text-decoration: underline; }
 .btn.primary { background: var(--primary); }
 
 /* Make container text align left by default for readability */
-.container { text-align: left; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; text-align: left; }
 </style>

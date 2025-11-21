@@ -150,32 +150,37 @@ export default {
 }
 </script>
 
+.style-scoped { }
 <style scoped>
-.project-detail { padding: 24px; padding-top: calc(var(--hf-height, 64px) + 24px); }
-.detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap:40px; align-items:start }
-.detail-card { min-width: 0 }
-.detail-inner { max-width: 760px; margin: 0 auto }
+.project-detail { padding: 24px 0; padding-top: calc(var(--hf-height, 64px) + 24px); box-sizing: border-box; }
+
+/* layout: left = fluid content, right = fixed-width sidebar (min 260px, max 360px) */
+.detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 360px); gap:28px; align-items: start; width:100%; box-sizing: border-box; }
+.detail-card { min-width: 0; width: 100%; box-sizing: border-box; }
+.detail-inner { max-width: 760px; margin: 0; box-sizing: border-box; text-align: left }
+
+.detail-sidebar { box-sizing: border-box; text-align: left }
 .detail-sidebar .sticky { position: sticky; top: calc(var(--hf-height, 64px) + 16px); max-height: calc(100vh - (var(--hf-height, 64px) + 48px)); overflow: auto; display:flex; flex-direction:column; gap:18px; align-items:flex-start }
+
 .view-project { margin-bottom: 6px; display:flex; justify-content:flex-start }
-.detail-card { background:var(--ui-bg); border:1px solid var(--card-border); padding:20px; border-radius:10px; box-shadow: 0 6px 18px rgba(15,23,42,0.04); }
+.detail-card { background:#f3f8f8; border:1px solid var(--card-border); padding:20px; border-radius:10px; box-shadow: 0 6px 18px rgba(8, 55, 163, 0.04); }
 .detail-header { display:flex; flex-direction:column; gap:6px; margin-bottom:8px; align-items:flex-start; text-align:left }
 .detail-title { margin:0; font-size:22px; line-height:1.15; text-align:left }
 .meta { color:var(--muted); font-size:13px; text-align:left }
 .detail-summary { margin:8px 0; color:var(--muted); font-size:15px; text-align:left }
 .detail-highlight { color:var(--primary); font-weight:700; margin-bottom:8px; font-size:16px; text-align:left }
+
 .stacks { margin:12px 0; text-align:left }
 .stack-group { margin-bottom:8px }
 .stack-key { display:block; font-weight:600; text-transform:capitalize; margin-bottom:6px; text-align:left }
 .stack-items { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-start }
 .stack { display:inline-block; padding:6px 10px; border-radius:999px; background:#f1f5f9; border:1px solid #e6eefc; font-size:13px; color:var(--text); }
+
 .detail-sections .block { margin-top:18px }
 .detail-sections h2 { margin:0 0 8px; font-size:20px; text-align:left }
 .detail-sections li { font-size: 16px; color: #0f172a !important; }
-
-.detail-inner { max-width: 760px; margin: 0 auto; text-align: left }
 .detail-sections ul { padding-left:18px }
-.detail-sidebar .tech-block h4 { text-align:left; margin-bottom:8px }
-.detail-sidebar .tech-block .stack-items { justify-content:flex-start }
+
 /* Info shown as table rows so the divider lines are continuous */
 .info-table { display: table; width: 100%; background:var(--page-bg); border-radius:8px; border:1px solid var(--card-border); border-collapse: collapse; box-sizing: border-box; }
 .info-row { display: table-row; border-bottom: 1px solid var(--card-border) }
@@ -189,59 +194,29 @@ export default {
   .info-row:last-child { border-bottom:none }
   .info-key, .info-value { display:block; padding:8px 6px }
   .info-key { margin-bottom:4px }
+  
 }
-.detail-sidebar { text-align:left }
-.detail-sidebar .sticky { align-items:flex-start }
-.detail-sidebar .view-project { width:100% }
-.detail-sidebar .view-project .btn { margin:0; align-self:flex-start }
-.detail-sidebar .sidebar-block { width:100% }
-.detail-sidebar h4 { text-align:left }
-.detail-sidebar .stack-items { justify-content:flex-start }
-/* ensure info table never causes horizontal overflow */
-.info-table { box-sizing: border-box; max-width: 100%; overflow: visible }
-.info-value { word-break: break-word; }
-/* enforce left alignment for sidebar and info table */
-.detail-sidebar { text-align: left }
-.info-table { justify-items: start; width: 100% }
-.info-key, .info-value { text-align: left }
+
 .view-block { width:100% }
 .view-block h4 { margin:0 0 8px; font-size:16px }
-.view-project .btn.primary { background: #2b8cf6; color: #fff; border: none; padding:8px 12px; border-radius:8px; display:inline-flex; align-items:center; gap:8px; text-decoration:none }
+.view-project .btn.primary { background: #c0f62b; color: #fff; border: none; padding:8px 12px; border-radius:8px; display:inline-flex; align-items:center; gap:8px; text-decoration:none }
 .view-project .btn.primary svg { width:14px; height:14px }
 .view-project .btn.primary:focus { outline: 2px solid rgba(43,140,246,0.24); outline-offset:2px }
-/* keep link buttons visually stable (no underline, no color shift after click) */
+
 .back .btn,
 .back .btn:link,
 .back .btn:visited,
 .back .btn:active,
-.back .btn:focus {
-  text-decoration: none;
-  color: var(--text, #0f172a);
-}
-
-/* style .back .btn as a visible button */
-.back .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--card-border);
-  background: transparent;
-  cursor: pointer;
-}
+.back .btn:focus { text-decoration: none; color: var(--text, #0f172a); }
+.back .btn { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--card-border); background: transparent; cursor: pointer; }
 .back .btn:hover { background: rgba(0,0,0,0.02) }
 .back .btn:focus { outline: 2px solid rgba(0,0,0,0.06); outline-offset:2px }
 
-/* ensure primary view button also doesn't change after click */
 .view-project .btn.primary:link,
 .view-project .btn.primary:visited,
 .view-project .btn.primary:active,
-.view-project .btn.primary:focus {
-  background: #2b8cf6;
-  color: #fff;
-  text-decoration: none;
-}
+.view-project .btn.primary:focus { background: #2b8cf6; color: #fff; text-decoration: none; }
+
 .problems .problem { background: var(--hero-bg); border:1px solid var(--card-border); padding:14px; border-radius:10px; margin-bottom:12px; color:var(--text) }
 .problem-title {  margin:0 0 6px; color: #0f172a; }
 .problem-solution { margin:0; color: #0f172a; }
@@ -249,10 +224,16 @@ export default {
 .link { color:var(--primary); text-decoration:none; border:1px solid transparent; padding:6px 10px; border-radius:6px }
 .back { margin-top:16px; display:flex; gap:8px }
 .loading, .not-found { padding:24px; text-align:center }
+
 @media (max-width:720px) {
   .detail-title { font-size:18px }
   .detail-card { padding:16px }
   .detail-layout { grid-template-columns: 1fr; }
   .detail-sidebar .sticky { position: static; top: auto }
+
+  /* add safe horizontal padding on small screens so content doesn't touch edges */
+  .project-detail.container { padding-left: 24px; padding-right: 24px; }
+  .detail-inner { padding: 0 12px; }
 }
+
 </style>
