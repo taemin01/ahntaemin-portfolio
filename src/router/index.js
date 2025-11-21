@@ -8,7 +8,8 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory("/ahntaemin-portfolio"),
+  // history: createWebHistory('/ahntaemin-portfolio/'),
+  history: createWebHistory(process.env.BASE_URL || '/'),
   routes,
 });
 

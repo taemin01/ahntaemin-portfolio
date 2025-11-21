@@ -19,26 +19,26 @@
 
         <section v-if="project.detail" class="detail-sections">
           <div v-if="project.detail.goal" class="block">
-            <h3>Goal</h3>
+            <h2>Goal</h2>
             <p>{{ project.detail.goal }}</p>
           </div>
 
           <div v-if="project.detail.overview" class="block">
-            <h3>Overview</h3>
+            <h2>Overview</h2>
             <ul>
               <li v-for="(o, i) in project.detail.overview" :key="i">{{ o }}</li>
             </ul>
           </div>
 
           <div v-if="project.detail.responsibilities" class="block">
-            <h3>Responsibilities</h3>
+            <h2>Responsibilities</h2>
             <ul>
               <li v-for="(r, i) in project.detail.responsibilities" :key="i">{{ r }}</li>
             </ul>
           </div>
 
           <div v-if="project.detail.problemsAndSolutions" class="block">
-            <h3>Problems & Solutions</h3>
+            <h2>Problems & Solutions</h2>
             <div class="problems">
               <div v-for="(p, i) in project.detail.problemsAndSolutions" :key="i" class="problem">
                 <p class="problem-title">문제: {{ p.problem }}</p>
@@ -48,7 +48,7 @@
           </div>
 
           <div v-if="project.detail.learnings" class="block">
-            <h3>Learnings</h3>
+            <h2>Learnings</h2>
             <ul>
               <li v-for="(l, i) in project.detail.learnings" :key="i">{{ l }}</li>
             </ul>
@@ -113,7 +113,8 @@ export default {
   methods: {
     loadProject() {
       const id = this.$route.params.id
-      fetch('/projects.json')
+      const base = process.env.BASE_URL || '/'
+      fetch(`${base}projects.json`)
         .then(res => res.json())
         .then(data => {
           const list = data.projects || []
@@ -166,9 +167,10 @@ export default {
 .stack-group { margin-bottom:8px }
 .stack-key { display:block; font-weight:600; text-transform:capitalize; margin-bottom:6px; text-align:left }
 .stack-items { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-start }
-.stack { padding:6px 8px; border-radius:999px; background:var(--page-bg); border:1px solid var(--card-border); font-size:13px; color:var(--muted) }
+.stack { display:inline-block; padding:6px 10px; border-radius:999px; background:#f1f5f9; border:1px solid #e6eefc; font-size:13px; color:var(--text); }
 .detail-sections .block { margin-top:18px }
-.detail-sections h3 { margin:0 0 8px; font-size:16px; text-align:left }
+.detail-sections h2 { margin:0 0 8px; font-size:20px; text-align:left }
+.detail-sections li { font-size: 16px; color: #0f172a !important; }
 
 .detail-inner { max-width: 760px; margin: 0 auto; text-align: left }
 .detail-sections ul { padding-left:18px }
@@ -240,9 +242,9 @@ export default {
   color: #fff;
   text-decoration: none;
 }
-.problems .problem { background:var(--ui-bg); border:1px solid var(--card-border); padding:10px; border-radius:8px; margin-bottom:8px }
-.problem-title { font-weight:600; margin:0 0 6px }
-.problem-solution { margin:0 }
+.problems .problem { background: var(--hero-bg); border:1px solid var(--card-border); padding:14px; border-radius:10px; margin-bottom:12px; color:var(--text) }
+.problem-title {  margin:0 0 6px; color: #0f172a; }
+.problem-solution { margin:0; color: #0f172a; }
 .links { margin-top:12px; display:flex; gap:12px }
 .link { color:var(--primary); text-decoration:none; border:1px solid transparent; padding:6px 10px; border-radius:6px }
 .back { margin-top:16px; display:flex; gap:8px }

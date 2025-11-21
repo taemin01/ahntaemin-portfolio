@@ -7,8 +7,8 @@
           <p class="lead">저에 대한 정보와 프로젝트의 자세한 내용은 이력서를 확인해주세요.</p>
 
           <div class="resume-actions">
-            <a class="btn" style="margin-right: 10px;" href="/ahntaemin_portfoilo.pdf" target="_blank" >이력서 보기</a>
-            <a class="btn" href="/ahntaemin_cover_letter.pdf" target="_blank" >자기소개서 보기</a>
+            <a class="btn" style="margin-right: 10px;" href="/ahntaemin-portfolio/ahntaemin_portfolio.pdf" target="_blank">이력서 보기</a>
+            <a class="btn" href="/ahntaemin-portfolio/ahntaemin_cover_letter.pdf" target="_blank">자기소개서 보기</a>
       </div>
         </div>
         
@@ -27,12 +27,6 @@
           </p>
 
           <ul class="contact-icons">
-            <!-- <li>
-                <a class="icon-link email" href="mailto:taemin@example.com?subject=%5B포트폴리오%20문의%5D%20연락드립니다&body=안녕하세요%20안태민님%0A%0A간단한%20자기소개%20(예:%20이름%2C%20직무)%3A%0A%0A문의내용%3A%0A" aria-label="Email" title="Email">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" ry="2"/><path d="M3 7l8.5 6L21 7"/></svg>
-                <span class="icon-label">Email</span>
-              </a>
-            </li> -->
             <li>
               <a class="icon-link github" href="https://github.com/taemin01" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
                 <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.263.82-.583 0-.288-.01-1-.02-1.96-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.98-.399 3-.405 1.02.006 2.043.139 3 .405 2.29-1.552 3.297-1.23 3.297-1.23.655 1.653.243 2.873.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.61-2.803 5.625-5.475 5.92.43.37.823 1.096.823 2.21 0 1.596-.015 2.884-.015 3.277 0 .322.216.698.825.58C20.565 21.796 24 17.297 24 12 24 5.37 18.63 0 12 0z"/></svg>
@@ -143,7 +137,7 @@ export default {
     return {
       projects: [],
       expanded: false,
-      visibleCount: 3
+      visibleCount: 3,
     }
   },
   computed: {
@@ -173,16 +167,15 @@ export default {
     }
   },
   mounted() {
-    fetch('/projects.json')
+    const base = process.env.BASE_URL || '/'
+
+    fetch(`${base}projects.json`)
       .then(r => r.json())
       .then(data => {
         this.projects = data.projects || []
-        // if there are 6 or fewer projects, default expanded to true when it's small
         if (this.projects.length <= this.visibleCount) this.expanded = true
       })
       .catch(err => {
-        // keep projects empty on error, optional console log for debugging
-        // eslint-disable-next-line no-console
         console.error('projects.json 로드 실패', err)
       })
   }
@@ -239,7 +232,7 @@ export default {
 .card-highlight { margin:4px 0 10px; color:var(--primary); font-weight:700; font-size:15px }
 .tags { margin-top:8px; display:flex; gap:8px; flex-wrap:wrap }
 .tag { background:var(--ui-bg); border:1px solid var(--card-border); padding:6px 8px; border-radius:999px; font-size:13px; color:var(--muted) }
-.project-toggle { margin-top:14px; display:inline-flex; gap:8px; align-items:center; cursor:pointer; color:var(--primary); user-select:none }
+.project-toggle { margin-top:14px; display:flex; justify-content:center; gap:8px; align-items:center; cursor:pointer; color:var(--primary); user-select:none }
 .toggle-arrow { transition: transform 180ms ease }
 .toggle-arrow.open { transform: rotate(180deg) }
 .card-title { margin:0 0 8px; padding-right:88px }
