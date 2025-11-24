@@ -184,7 +184,7 @@
         <div class="skills-grid">
           <div class="skill-card full-width">
             <h3>Languages</h3>
-            <p class="skill-list">Java · Python · HTML/CSS · JavaScript</p>
+            <p class="skill-list">Java · Python · JavaScript</p>
             <p class="skill-note">
               Java Spring Boot를 사용하여 웹을 기반으로 한 팀 프로젝트를 진행하였습니다.
             </p>
@@ -195,7 +195,7 @@
 
           <div class="skill-card full-width">
             <h3>Frameworks</h3>
-            <p class="skill-list">Spring Boot · Spring Data JPA · Vue.js</p>
+            <p class="skill-list">Spring Boot · Spring Data JPA · Vue.js · FastAPI</p>
             <p class="skill-note">
               Spring Boot로 REST API 설계·구현 및 JPA로 데이터 연동을 담당했습니다.
             </p>
@@ -206,7 +206,7 @@
 
           <div class="skill-card full-width">
             <h4>Database</h4>
-            <p class="skill-list">MySQL · Chroma DB</p>
+            <p class="skill-list">MySQL · Chroma DB · PostgreSQL</p>
             <p class="skill-note">
               관계형 DB 설계와 홈 서버 구축 데이터베이스 경험이 있으며, Chroma DB로 벡터 데이터
               저장·검색을 다뤄봤습니다.
@@ -224,7 +224,7 @@
           <div class="skill-card full-width">
             <h3>Tools & DevOps</h3>
             <p class="skill-list">
-              Docker · AWS(EC2,Lambda,RDS) · GitHub Actions · Postman
+              Docker · AWS(EC2, Lambda, RDS) · GitHub Actions · Postman
             </p>
             <p class="skill-note">
               Docker로 데이터베이스 컨테이너화, 간단한 AWS Lambda, EC2 배포 및 GitHub Actions 기반
