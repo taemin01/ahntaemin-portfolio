@@ -1,35 +1,49 @@
+
 <template>
   <main class="home-view">
     <!-- HERO -->
     <section class="hero" id="home">
       <div class="container hero-inner">
-        <div class="hero-text full">
-          <h2>
-            안녕하세요<br />
-            끈기 있게 배우며 성장하는<br />
-            백엔드 개발자 안태민입니다.
-          </h2>
-          <p class="lead">
-            저에 대한 정보와 프로젝트의 자세한 내용은 이력서를 확인해주세요.
-          </p>
-
-          <div class="resume-actions">
-            <a
-              class="btn"
-              style="margin-right: 10px;"
-              href="/ahntaemin-portfolio/ahntaemin_portfolio.pdf"
-              target="_blank"
-            >
-              이력서 보기
-            </a>
-            <a
-              class="btn"
-              href="/ahntaemin-portfolio/ahntaemin_cover_letter.pdf"
-              target="_blank"
-            >
-              자기소개서 보기
-            </a>
+        <div class="resume-card-wide">
+          <div class="resume-quad-grid">
+            <div class="resume-quad-cell profile-cell">
+              <h2 class="resume-title">프로필</h2>
+              <ul class="resume-info-list">
+                <li><strong>이름</strong>: 안태민</li>
+                <li><strong>생년월일</strong>: 2001.02.12</li>
+                <li><strong>번호</strong>: 010.5513.9724</li>
+                <li><strong>메일</strong>: robotaeminan@gmail.com</li>
+                <li><strong>주소</strong>: 경기도 안산시 단원구</li>
+              </ul>
+            </div>
+            <div class="resume-quad-cell cert-cell">
+              <h2 class="resume-title">자격증</h2>
+              <ul class="resume-info-list">
+                <li>SQLD</li>
+                <li>OCP 취득 예정</li>
+                <li>정보처리산업기사 취득 예정</li>
+              </ul>
+            </div>
+            <div class="resume-quad-cell edu-cell">
+              <h2 class="resume-title">학력</h2>
+              <ul class="resume-info-list">
+                <li>경기모바일과학고등학교<span class="resume-period">[2017.03~2020.01]</span></li>
+                <li>인하공업전문대학<span class="resume-period">[2020.03~2026.02]</span>
+                  <ul class="resume-sub-list">
+                    <li>컴퓨터정보학과 3학년</li>
+                    <li>학점 : 3.43 / 4.5</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="resume-quad-cell exp-cell">
+              <h2 class="resume-title">경력</h2>
+              <ul class="resume-info-list">
+                <li>지뉴소프트 인턴 <span class="resume-period">[2025.07~2025.08]</span></li>
+              </ul>
+            </div>
           </div>
+        
         </div>
       </div>
     </section>
@@ -42,10 +56,9 @@
         <div class="about-me">
           <div class="about-me-inner">
             <p class="about-bio">
-              저는 신입 백엔드 개발자로서
-              주로 Java와 Spring Boot로 서버와 API를 설계·구현합니다. <br />
-              다양한 백엔드 언어(Golang, Python) 및 프레임워크에 관심이 있으며, <br />
-              현재 간단한 홈 서버(MiniPC) 구축을 통해 서버 보안 <br />
+              저는 Java와 Spring Boot로 서버와 API를 설계·구현하며 <br />
+              데이터베이스 엔지니어 및 관리 직무에 관심이 있습니다. <br />
+              minipc를 이용한 server 구축을 통해 서버 보안 <br />
               DB 보안 지식을 학습하여 개인 및 팀 프로젝트에 적용하고 있습니다.
             </p>
 
@@ -128,7 +141,7 @@
                   <span class="icon-label">Velog</span>
                 </a>
               </li>
-              <li>
+              <!-- <li>
                 <a
                   class="icon-link instagram"
                   href="https://www.instagram.com/t._.m2_/"
@@ -166,7 +179,7 @@
                   </svg>
                   <span class="icon-label">Instagram</span>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -179,7 +192,7 @@
         <h2>Skills</h2>
         <h4>보유 스킬과 경험 내용을 작성하였습니다.</h4>
 
-        <p class="core-tech">핵심기술: Java · Spring Boot · JPA · MySQL</p>
+        <p class="core-tech">핵심기술: Java · Spring Boot · JPA · Oracle · PostgreSQL</p>
 
         <div class="skills-grid">
           <div class="skill-card full-width">
@@ -206,10 +219,13 @@
 
           <div class="skill-card full-width">
             <h4>Database</h4>
-            <p class="skill-list">MySQL · Chroma DB</p>
+            <p class="skill-list">Oracle · PostgreSQL · Chroma DB</p>
             <p class="skill-note">
               관계형 DB 설계와 홈 서버 구축 데이터베이스 경험이 있으며, Chroma DB로 벡터 데이터
               저장·검색을 다뤄봤습니다.
+            </p>
+            <p class="skill-note">
+              Oracle Architecture와 Admin, Backup & Recovery 기초를 교육 받았습니다.
             </p>
           </div>
 
@@ -262,7 +278,7 @@
               {{ project.cardHighlight }}
             </p>
 
-            <div
+            <!-- <div
               class="tags"
               v-if="getTags(project).length"
             >
@@ -273,7 +289,7 @@
               >
                 {{ t }}
               </span>
-            </div>
+            </div> -->
           </article>
         </div>
 
@@ -367,7 +383,8 @@ export default {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 24px 24px 12px 24px;
+  /* padding: 24px; */
   width: 100%;
   box-sizing: border-box;
 }
@@ -380,7 +397,8 @@ export default {
 /* HERO */
 .hero {
   position: relative;
-  padding: 64px 0;
+  padding-top: 56px;
+  padding-bottom: 16px;
 }
 
 .hero::before {
@@ -395,9 +413,151 @@ export default {
 .hero-inner {
   display: flex;
   gap: 24px;
-  align-items: center;
+  align-items: stretch;
+  justify-content: center;
   position: relative;
   z-index: 1;
+}
+
+.resume-card-wide {
+  background: var(--ui-bg);
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1.5px solid #e0e0e0;
+  overflow: hidden;
+}
+.resume-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0 32px;
+}
+.resume-left, .resume-right {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0 32px 0 0;
+}
+.resume-right {
+  padding: 0 0 0 32px;
+}
+.resume-divider-vertical {
+  width: 2px;
+  background: #e0e0e0;
+  margin: 0 12px;
+  min-height: 340px;
+  align-self: stretch;
+}
+@media (max-width: 900px) {
+  .resume-card-wide {
+    padding: 16px 4px 16px 4px;
+    max-width: 100%;
+  }
+  .resume-flex {
+    flex-direction: column;
+  }
+  .resume-left, .resume-right {
+    padding: 0;
+  }
+  .resume-divider-vertical {
+    display: none;
+  }
+}
+
+.resume-card {
+  background: white;
+  padding: 28px 24px 24px 24px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.10);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.resume-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.resume-profile-info {
+  width: 100%;
+}
+.resume-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.resume-table th,
+.resume-table td {
+  padding: 6px 10px;
+  text-align: left;
+  font-size: 15px;
+}
+.resume-section-title {
+  font-weight: 700;
+  font-size: 18px;
+  padding-bottom: 4px;
+}
+.resume-label {
+  color: #555;
+  width: 80px;
+  font-weight: 500;
+}
+.resume-value {
+  color: #222;
+}
+.resume-photo-cell {
+  text-align: center;
+  vertical-align: middle;
+  width: 120px;
+}
+.resume-photo {
+  width: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.resume-divider {
+  border: none;
+  border-top: 1.5px solid #222;
+  margin: 18px 0 14px 0;
+}
+.resume-section {
+  margin-bottom: 0;
+}
+.resume-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+}
+.resume-list > li {
+  margin-bottom: 6px;
+}
+.resume-period {
+  color: #666;
+  font-size: 13px;
+  margin-left: 6px;
+}
+@media (max-width: 720px) {
+  .resume-card {
+    padding: 16px 6px 16px 6px;
+    max-width: 100%;
+  }
+  .resume-photo {
+    width: 70px;
+  }
+  .resume-section-title {
+    font-size: 16px;
+  }
+  .resume-table th, .resume-table td {
+    font-size: 13px;
+    padding: 4px 6px;
+  }
 }
 
 .hero-text {
@@ -604,9 +764,9 @@ export default {
 }
 
 /* About Me styles */
-.about-me {
+/* .about-me {
   padding: 12px 0 0;
-}
+} */
 
 .about-me-inner {
   display: flex;
@@ -667,6 +827,57 @@ export default {
   height: 36px;
   display: block;
 }
+
+/* 카드 내부 제목/목록/항목 간 공백 최소화 */
+.resume-title {
+  margin-bottom: 8px;
+}
+.resume-info-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+.resume-info-list li {
+  margin-bottom: 2px;
+}
+.resume-info-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* 2x2 그리드로 4등분된 HERO 카드 */
+        .resume-quad-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas:
+            "profile cert"
+            "edu exp";
+          border-top: 0;
+          border-left: 0;
+          border-right: 0;
+          border-bottom: 0;
+          align-items: stretch;
+        }
+        .resume-quad-cell {
+          padding: 24px 32px 16px 32px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          border-right: 1.5px solid #e0e0e0;
+          border-bottom: 1.5px solid #e0e0e0;
+        }
+        .resume-quad-cell:nth-child(2),
+        .resume-quad-cell:nth-child(4) {
+          border-right: none;
+        }
+        .resume-quad-cell:nth-child(3),
+        .resume-quad-cell:nth-child(4) {
+          border-bottom: none;
+        }
+        .profile-cell { grid-area: profile; }
+        .cert-cell   { grid-area: cert;    }
+        .edu-cell    { grid-area: edu;     }
+        .exp-cell    { grid-area: exp;     }
 
 @media (max-width: 720px) {
   .contact-icons {
