@@ -20,8 +20,10 @@
               <h2 class="resume-title">자격증</h2>
               <ul class="resume-info-list">
                 <li>SQLD</li>
-                <li>OCP 취득 예정</li>
-                <li>정보처리산업기사 취득 예정</li>
+                <li>OCP 19C</li>
+                <!-- <li>OCI</li> -->
+                <!-- <li>정보처리산업기사</li> -->
+
               </ul>
             </div>
             <div class="resume-quad-cell edu-cell">
@@ -34,6 +36,7 @@
                     <li>학점 : 3.43 / 4.5</li>
                   </ul>
                 </li>
+                <li>ITWILL ORACLE ADMIN 교육 수료<span class="resume-period">[2026.01~2026.06]</span></li>
               </ul>
             </div>
             <div class="resume-quad-cell exp-cell">
@@ -225,7 +228,7 @@
               저장·검색을 다뤄봤습니다.
             </p>
             <p class="skill-note">
-              Oracle Architecture와 Admin, Backup & Recovery 기초를 교육 받았습니다.
+              Oracle Architecture와 Admin, Backup & Recovery를 교육 받았습니다.
             </p>
           </div>
 
